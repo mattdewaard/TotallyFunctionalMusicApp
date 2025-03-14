@@ -1,0 +1,18 @@
+//
+//  DomainKit
+//  Created by Matt de Waard on 15/03/2025.
+//  Copyright © 2025. All rights reserved.
+//
+
+import Foundation
+
+public protocol UIOAlbum {
+    
+    var title: String { get }
+    var artist: String { get }
+    var releaseDate: Date { get }
+    var coverArtUrl: String { get }
+    var tracks: Int { get }
+    var genre: [String] { get }
+    
+}

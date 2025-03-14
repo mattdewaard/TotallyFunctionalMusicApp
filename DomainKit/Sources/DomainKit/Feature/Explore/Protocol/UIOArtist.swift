@@ -6,10 +6,10 @@
 
 import Foundation
 
-public final class DomainKitFacade {
+public protocol UIOArtist {
     
-    public static var explore: any ExploreProtocol {
-        ExploreFacade()
-    }
+    var name: String { get }
+    var numberOfAlbums: Int { get }
+    var genre: [String] { get }
     
 }

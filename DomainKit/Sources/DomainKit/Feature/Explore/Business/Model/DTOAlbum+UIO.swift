@@ -6,10 +6,9 @@
 
 import Foundation
 
-public final class DomainKitFacade {
+extension DTOAlbum: UIOAlbum {
     
-    public static var explore: any ExploreProtocol {
-        ExploreFacade()
-    }
+    
+    
     
 }

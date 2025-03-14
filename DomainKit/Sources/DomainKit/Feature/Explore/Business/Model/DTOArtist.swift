@@ -6,10 +6,11 @@
 
 import Foundation
 
-public final class DomainKitFacade {
+struct DTOArtist {
     
-    public static var explore: any ExploreProtocol {
-        ExploreFacade()
-    }
+    let name: String
+    let albums: [DTOAlbum]
     
 }
+
+
