@@ -8,6 +8,7 @@ import Foundation
 
 public protocol UIOAlbum {
     
+    var id: String { get }
     var title: String { get }
     var artist: String { get }
     var releaseDate: Date { get }

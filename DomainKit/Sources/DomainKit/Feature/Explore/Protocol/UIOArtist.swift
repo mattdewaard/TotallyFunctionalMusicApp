@@ -9,6 +9,7 @@ import Foundation
 public protocol UIOArtist {
     
     var name: String { get }
+    var imageUrl: String { get }
     var numberOfAlbums: Int { get }
     var genre: [String] { get }
     

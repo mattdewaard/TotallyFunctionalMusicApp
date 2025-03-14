@@ -8,7 +8,8 @@ import Foundation
 
 extension DTOAlbum: UIOAlbum {
     
-    
-    
-    
+    var id: String {
+        artist + title
+    }
+
 }
