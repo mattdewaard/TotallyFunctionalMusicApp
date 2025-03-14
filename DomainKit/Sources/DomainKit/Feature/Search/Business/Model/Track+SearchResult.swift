@@ -6,7 +6,7 @@
 
 import Foundation
 
-extension Track: UIOSearchResult {
+extension DTOTrack: UIOSearchResult {
    
     public var detail: String {
         "\(album.title), \(artist.name)"

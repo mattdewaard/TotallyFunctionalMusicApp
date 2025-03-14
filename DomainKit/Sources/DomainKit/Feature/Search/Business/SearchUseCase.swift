@@ -31,7 +31,7 @@ final class SearchUseCase {
 
 extension SearchUseCase {
     
-    private func getMatchingTracks(for searchTerm: String) async throws -> [Track] {
+    private func getMatchingTracks(for searchTerm: String) async throws -> [DTOTrack] {
         let tracks = try await TracksFacade().get()
         return tracks.filter { track in
             track.title.lowercased().contains(searchTerm)

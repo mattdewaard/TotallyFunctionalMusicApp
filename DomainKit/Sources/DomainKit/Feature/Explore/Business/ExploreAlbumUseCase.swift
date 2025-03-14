@@ -6,7 +6,7 @@
 
 import Foundation
 
-private extension Track {
+private extension DTOTrack {
     
     var albumKey: String {
         artist.name + album.title
@@ -14,7 +14,7 @@ private extension Track {
     
 }
 
-final class AlbumUseCase {
+final class ExploreAlbumUseCase {
     
     func get() async throws -> [DTOAlbum] {
         let tracks = try await TracksFacade().get()

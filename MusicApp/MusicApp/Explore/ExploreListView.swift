@@ -16,6 +16,7 @@ struct ExploreListView: View {
             LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
                 artistSection
                 albumSection
+                tracksSection
             }
             .padding(.vertical, Theme.size(.size200))
         }
@@ -28,9 +29,13 @@ struct ExploreListView: View {
     @ViewBuilder
     private var artistSection: some View {
         Section {
-            ArtistCarouselView(artists: viewModel.artists)
+            ArtistCarouselView(artists: viewModel.displayArtists)
         } header: {
-            sectionHeader("Explore artists")
+            sectionHeader("Explore artists") {
+                Button("See more") {
+                    print("pressed")
+                }
+            }
         }
     }
     
@@ -38,24 +43,53 @@ struct ExploreListView: View {
     @ViewBuilder
     private var albumSection: some View {
         Section {
-            ForEach(viewModel.albums, id: \.id) { album in
+            ForEach(viewModel.displayAlbums, id: \.id) { album in
                 AlbumView(album: album)
                     .padding(.horizontal, Theme.size(.size200))
             }
         } header: {
-            sectionHeader("Explore albums")
+            HStack {
+                sectionHeader("Explore albums") {
+                    Button("See more") {
+                        print("pressed")
+                    }
+                }
+            }
         }
     }
     
-    private func sectionHeader(_ title: String) -> some View {
-        Text(title)
-            .adaptiveFont(.header(.medium))
-            .adaptiveForeground(.text)
-            .padding(.bottom, Theme.size(.size200))
-            .padding(.top, Theme.size(.size600))
-            .padding(.horizontal, Theme.size(.size200))
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .adaptiveBackground(.backgroundContent)
+    
+    @ViewBuilder
+    private var tracksSection: some View {
+        Section {
+            ForEach(viewModel.displayTracks, id: \.id) { track in
+                TrackView(track: track)
+                    .padding(.horizontal, Theme.size(.size200))
+            }
+        } header: {
+            HStack {
+                sectionHeader("Explore tracks") {
+                    Button("See more") {
+                        print("pressed")
+                    }
+                }
+            }
+        }
+    }
+    
+    private func sectionHeader<Action: View>(_ title: String, @ViewBuilder action: ()->Action) -> some View {
+        HStack {
+            Text(title)
+                .adaptiveFont(.header(.medium))
+                .adaptiveForeground(.text)
+            Spacer()
+            action()
+        }
+        .padding(.bottom, Theme.size(.size200))
+        .padding(.top, Theme.size(.size600))
+        .padding(.horizontal, Theme.size(.size200))
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .adaptiveBackground(.backgroundContent)
     }
 }
 

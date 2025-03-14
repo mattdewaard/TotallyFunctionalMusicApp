@@ -9,5 +9,5 @@ import Foundation
 enum DTOSearchResult {
     case artists([DTOArtist])
     case albums([DTOAlbum])
-    case tracks([Track])
+    case tracks([DTOTrack])
 }

@@ -10,8 +10,10 @@ public protocol ExploreProtocol {
     
     associatedtype Artist: UIOArtist
     associatedtype Album: UIOAlbum
+    associatedtype Track: UIOTrack
     
     func getArtists() async throws -> [Artist]
     func getAlbums() async throws -> [Album]
+    func getTracks() async throws -> [Track]
     
 }

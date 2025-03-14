@@ -6,10 +6,13 @@
 
 import Foundation
 
-final class TracksFacade {
+extension DTOTrack {
     
-    func get() async throws -> [DTOTrack] {
-        try await TracksUseCase().get()
+    public struct Album: Codable {
+        
+        public let title: String
+        public let coverArtUrl: String
+        
     }
     
 }

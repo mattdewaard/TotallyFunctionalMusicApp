@@ -12,7 +12,7 @@ final class ExploreListViewModel: ObservableObject {
 
     @Published private(set) var artists: [UIOArtist] = []
     @Published private(set) var albums: [UIOAlbum] = []
-//    @Published private(set) var artists: [UIOTracks] = []
+    @Published private(set) var tracks: [UIOTrack] = []
     
     private let usecase: any ExploreProtocol
     
@@ -23,6 +23,19 @@ final class ExploreListViewModel: ObservableObject {
     func setup() async throws {
         self.artists = try await usecase.getArtists()
         self.albums = try await usecase.getAlbums()
+        self.tracks = try await usecase.getTracks()
+    }
+    
+    var displayArtists: [UIOArtist] {
+        Array(artists.prefix(10))
+    }
+    
+    var displayAlbums: [UIOAlbum] {
+        Array(albums.prefix(10))
+    }
+    
+    var displayTracks: [UIOTrack] {
+        Array(tracks.sorted(by: { $0.title < $1.title }).prefix(10))
     }
     
 }

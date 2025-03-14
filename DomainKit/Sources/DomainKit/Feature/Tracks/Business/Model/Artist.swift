@@ -6,8 +6,12 @@
 
 import Foundation
 
-public struct Artist: Codable {
+extension DTOTrack {
     
-    public let name: String
+    public struct Artist: Codable {
+        
+        public let name: String
+        
+    }
     
 }

@@ -8,12 +8,12 @@ import Foundation
 
 final class TracksUseCase {
     
-    func get() async throws -> [Track] {
+    func get() async throws -> [DTOTrack] {
         guard let jsonUrl = Bundle.module.url(forResource: "songs", withExtension: "json") else {
             throw TrackError.trackJsonNotFound
         }
         let jsonData = try Data(contentsOf: jsonUrl)
-        let tracks = try JSONDecoder().decode([Track].self, from: jsonData)
+        let tracks = try JSONDecoder().decode([DTOTrack].self, from: jsonData)
         return tracks
     }
     

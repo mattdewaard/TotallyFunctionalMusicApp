@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct Track: Codable {
+public struct DTOTrack: Codable {
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -30,7 +30,7 @@ public struct Track: Codable {
     
 }
 
-extension Track {
+extension DTOTrack {
     
     var releaseDate: Date {
         let formatter = DateFormatter()

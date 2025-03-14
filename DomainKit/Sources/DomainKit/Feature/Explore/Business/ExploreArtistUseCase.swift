@@ -6,8 +6,7 @@
 
 import Foundation
 
-
-final class ArtistUseCase {
+final class ExploreArtistUseCase {
     
     func get() async throws -> [DTOArtist] {
         let albums = try await ExploreFacade().getAlbums()

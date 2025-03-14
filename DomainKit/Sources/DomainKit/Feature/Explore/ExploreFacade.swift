@@ -9,11 +9,15 @@ import Foundation
 final class ExploreFacade: ExploreProtocol {
     
     func getArtists() async throws -> [DTOArtist] {
-        try await ArtistUseCase().get()
+        try await ExploreArtistUseCase().get()
     }
     
     func getAlbums() async throws -> [DTOAlbum] {
-        try await AlbumUseCase().get()
+        try await ExploreAlbumUseCase().get()
+    }
+    
+    func getTracks() async throws -> [DTOTrack] {
+        try await ExploreTracksUseCase().get()
     }
     
 }
