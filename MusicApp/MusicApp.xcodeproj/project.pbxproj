@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D555D70B2D84DDE900EC2D15 /* DomainKit in Frameworks */ = {isa = PBXBuildFile; productRef = D555D70A2D84DDE900EC2D15 /* DomainKit */; };
+		D555D7222D84DF5300EC2D15 /* PresentationKit in Frameworks */ = {isa = PBXBuildFile; productRef = D555D7212D84DF5300EC2D15 /* PresentationKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D555D6B52D84C66700EC2D15 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D555D70B2D84DDE900EC2D15 /* DomainKit in Frameworks */,
+				D555D7222D84DF5300EC2D15 /* PresentationKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			);
 			name = MusicApp;
 			packageProductDependencies = (
+				D555D70A2D84DDE900EC2D15 /* DomainKit */,
+				D555D7212D84DF5300EC2D15 /* PresentationKit */,
 			);
 			productName = MusicApp;
 			productReference = D555D6A42D84C66600EC2D15 /* MusicApp.app */;
@@ -195,6 +204,10 @@
 			);
 			mainGroup = D555D69B2D84C66600EC2D15;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D555D7092D84DDE900EC2D15 /* XCLocalSwiftPackageReference "../DomainKit" */,
+				D555D7202D84DF5300EC2D15 /* XCLocalSwiftPackageReference "../PresentationKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D555D6A52D84C66600EC2D15 /* Products */;
 			projectDirPath = "";
@@ -404,6 +417,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,6 +451,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,6 +581,28 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D555D7092D84DDE900EC2D15 /* XCLocalSwiftPackageReference "../DomainKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../DomainKit;
+		};
+		D555D7202D84DF5300EC2D15 /* XCLocalSwiftPackageReference "../PresentationKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../PresentationKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D555D70A2D84DDE900EC2D15 /* DomainKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainKit;
+		};
+		D555D7212D84DF5300EC2D15 /* PresentationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PresentationKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D555D69C2D84C66600EC2D15 /* Project object */;
 }

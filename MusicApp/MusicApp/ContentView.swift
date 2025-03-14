@@ -8,13 +8,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            ExploreListView()
+                .tabItem {
+                    Label.init("Explore", systemImage: "waveform.badge.magnifyingglass")
+                }
         }
-        .padding()
+        .adaptiveBackground(.background)
     }
 }
 
