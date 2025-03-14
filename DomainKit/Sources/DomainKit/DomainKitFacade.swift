@@ -12,4 +12,8 @@ public final class DomainKitFacade {
         ExploreFacade()
     }
     
+    public static var search: any SearchProtocol {
+        SearchFacade()
+    }
+    
 }

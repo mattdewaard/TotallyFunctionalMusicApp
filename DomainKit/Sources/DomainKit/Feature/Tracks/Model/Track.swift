@@ -8,35 +8,34 @@ import Foundation
 
 public struct Track: Codable {
     
-//    enum CodingKeys: String, CodingKey {
-//        case title
-//        case artist
-//        case album
-//        case genre
-//        case duration
-//        case releaseDateString = "releaseDate"
-//        case trackNumber
-//        case tags
-//    }
+    enum CodingKeys: String, CodingKey {
+        case title
+        case artist
+        case album
+        case genre
+        case duration
+        case releaseDateString = "releaseDate"
+        case trackNumber
+        case tags
+    }
     
     public let title: String
     public let artist: Artist
     public let album: Album
     public let genre: String
     public let duration: TimeInterval
-    public let releaseDate: Date
     public let trackNumber: Int
     public let tags: [String]
-//    let releaseDateString: String
+    let releaseDateString: String
     
 }
 
-//extension Track {
-//    
-//    var releaseDate: Date {
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "YYYY-MM-dd"
-//        return formatter.date(from: releaseDateString) ?? .distantPast
-//    }
-//}
+extension Track {
+    
+    var releaseDate: Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd"
+        return formatter.date(from: releaseDateString) ?? .distantPast
+    }
+}
 
