@@ -1,12 +1,11 @@
 import XCTest
 @testable import DomainKit
 
-final class DomainKitTests: XCTestCase {
-    func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
-
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+final class TracksUseCaseTests: XCTestCase {
+    
+    func testTracksAvailable() async throws {
+        let tracks = try await TracksFacade().get()
+        XCTAssertFalse(tracks.isEmpty)
     }
+    
 }

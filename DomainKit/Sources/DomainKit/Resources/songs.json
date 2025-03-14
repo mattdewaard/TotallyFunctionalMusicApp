@@ -1,0 +1,887 @@
+[
+    {
+        "title": "Sweet Child o' Mine",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Appetite for Destruction",
+            "coverArtUrl": "https://example.com/cover-art-appetite.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 356,
+        "releaseDate": "1987-07-21",
+        "trackNumber": 6,
+        "tags": ["iconic", "guitar riff", "ballad"]
+    },
+    {
+        "title": "Welcome to the Jungle",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Appetite for Destruction",
+            "coverArtUrl": "https://example.com/cover-art-appetite.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 272,
+        "releaseDate": "1987-07-21",
+        "trackNumber": 1,
+        "tags": ["energetic", "anthem", "rock"]
+    },
+    {
+        "title": "November Rain",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Use Your Illusion I",
+            "coverArtUrl": "https://example.com/cover-art-illusion1.jpg"
+        },
+        "genre": "Rock Ballad",
+        "duration": 537,
+        "releaseDate": "1991-09-17",
+        "trackNumber": 12,
+        "tags": ["epic", "emotional", "power ballad"]
+    },
+    {
+        "title": "Paradise City",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Appetite for Destruction",
+            "coverArtUrl": "https://example.com/cover-art-appetite.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 406,
+        "releaseDate": "1987-07-21",
+        "trackNumber": 12,
+        "tags": ["anthem", "live favorite", "rock"]
+    },
+    {
+        "title": "Don't Cry",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Use Your Illusion I",
+            "coverArtUrl": "https://example.com/cover-art-illusion1.jpg"
+        },
+        "genre": "Rock Ballad",
+        "duration": 284,
+        "releaseDate": "1991-09-17",
+        "trackNumber": 4,
+        "tags": ["emotional", "ballad", "heartfelt"]
+    },
+    {
+        "title": "Knockin' on Heaven's Door",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Use Your Illusion II",
+            "coverArtUrl": "https://example.com/cover-art-illusion2.jpg"
+        },
+        "genre": "Rock",
+        "duration": 336,
+        "releaseDate": "1991-09-17",
+        "trackNumber": 13,
+        "tags": ["cover", "emotional", "rock"]
+    },
+    {
+        "title": "Civil War",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Use Your Illusion II",
+            "coverArtUrl": "https://example.com/cover-art-illusion2.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 467,
+        "releaseDate": "1991-09-17",
+        "trackNumber": 2,
+        "tags": ["political", "epic", "rock"]
+    },
+    {
+        "title": "You Could Be Mine",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Use Your Illusion II",
+            "coverArtUrl": "https://example.com/cover-art-illusion2.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 343,
+        "releaseDate": "1991-09-17",
+        "trackNumber": 3,
+        "tags": ["energetic", "soundtrack", "rock"]
+    },
+    {
+        "title": "Estranged",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Use Your Illusion II",
+            "coverArtUrl": "https://example.com/cover-art-illusion2.jpg"
+        },
+        "genre": "Rock Ballad",
+        "duration": 563,
+        "releaseDate": "1991-09-17",
+        "trackNumber": 16,
+        "tags": ["epic", "emotional", "ballad"]
+    },
+    {
+        "title": "Rocket Queen",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Appetite for Destruction",
+            "coverArtUrl": "https://example.com/cover-art-appetite.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 398,
+        "releaseDate": "1987-07-21",
+        "trackNumber": 12,
+        "tags": ["raw", "energetic", "rock"]
+    },
+    {
+        "title": "Live and Let Die",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Use Your Illusion I",
+            "coverArtUrl": "https://example.com/cover-art-illusion1.jpg"
+        },
+        "genre": "Rock",
+        "duration": 183,
+        "releaseDate": "1991-09-17",
+        "trackNumber": 11,
+        "tags": ["cover", "energetic", "rock"]
+    },
+    {
+        "title": "Patience",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "G N' R Lies",
+            "coverArtUrl": "https://example.com/cover-art-lies.jpg"
+        },
+        "genre": "Acoustic Rock",
+        "duration": 342,
+        "releaseDate": "1988-11-29",
+        "trackNumber": 4,
+        "tags": ["acoustic", "ballad", "emotional"]
+    },
+    {
+        "title": "Mr. Brownstone",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Appetite for Destruction",
+            "coverArtUrl": "https://example.com/cover-art-appetite.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 203,
+        "releaseDate": "1987-07-21",
+        "trackNumber": 4,
+        "tags": ["raw", "rock", "gritty"]
+    },
+    {
+        "title": "Nightrain",
+        "artist": {
+            "name": "Guns N' Roses"
+        },
+        "album": {
+            "title": "Appetite for Destruction",
+            "coverArtUrl": "https://example.com/cover-art-appetite.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 265,
+        "releaseDate": "1987-07-21",
+        "trackNumber": 5,
+        "tags": ["energetic", "rock", "raw"]
+    },
+    {
+        "title": "Highway to Hell",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Highway to Hell",
+            "coverArtUrl": "https://example.com/cover-art-highway.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 208,
+        "releaseDate": "1979-07-27",
+        "trackNumber": 1,
+        "tags": ["iconic", "anthem", "rock"]
+    },
+    {
+        "title": "Back in Black",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Back in Black",
+            "coverArtUrl": "https://example.com/cover-art-backinblack.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 255,
+        "releaseDate": "1980-07-25",
+        "trackNumber": 1,
+        "tags": ["legendary", "energetic", "rock"]
+    },
+    {
+        "title": "Thunderstruck",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "The Razors Edge",
+            "coverArtUrl": "https://example.com/cover-art-razorsedge.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 292,
+        "releaseDate": "1990-09-10",
+        "trackNumber": 1,
+        "tags": ["energetic", "guitar riff", "anthem"]
+    },
+    {
+        "title": "You Shook Me All Night Long",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Back in Black",
+            "coverArtUrl": "https://example.com/cover-art-backinblack.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 210,
+        "releaseDate": "1980-07-25",
+        "trackNumber": 7,
+        "tags": ["catchy", "party", "rock"]
+    },
+    {
+        "title": "T.N.T.",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "T.N.T.",
+            "coverArtUrl": "https://example.com/cover-art-tnt.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 215,
+        "releaseDate": "1975-12-01",
+        "trackNumber": 1,
+        "tags": ["explosive", "energetic", "rock"]
+    },
+    {
+        "title": "Dirty Deeds Done Dirt Cheap",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Dirty Deeds Done Dirt Cheap",
+            "coverArtUrl": "https://example.com/cover-art-dirtydeeds.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 247,
+        "releaseDate": "1976-09-20",
+        "trackNumber": 1,
+        "tags": ["raw", "rebellious", "rock"]
+    },
+    {
+        "title": "Hells Bells",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Back in Black",
+            "coverArtUrl": "https://example.com/cover-art-backinblack.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 312,
+        "releaseDate": "1980-07-25",
+        "trackNumber": 1,
+        "tags": ["ominous", "epic", "rock"]
+    },
+    {
+        "title": "Shoot to Thrill",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Back in Black",
+            "coverArtUrl": "https://example.com/cover-art-backinblack.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 317,
+        "releaseDate": "1980-07-25",
+        "trackNumber": 2,
+        "tags": ["energetic", "rock", "anthem"]
+    },
+    {
+        "title": "For Those About to Rock (We Salute You)",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "For Those About to Rock We Salute You",
+            "coverArtUrl": "https://example.com/cover-art-forthoseabouttorock.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 355,
+        "releaseDate": "1981-11-23",
+        "trackNumber": 1,
+        "tags": ["epic", "anthem", "rock"]
+    },
+    {
+        "title": "Whole Lotta Rosie",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Let There Be Rock",
+            "coverArtUrl": "https://example.com/cover-art-letthereberock.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 323,
+        "releaseDate": "1977-03-21",
+        "trackNumber": 7,
+        "tags": ["live favorite", "energetic", "rock"]
+    },
+    {
+        "title": "It's a Long Way to the Top (If You Wanna Rock 'n' Roll)",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "T.N.T.",
+            "coverArtUrl": "https://example.com/cover-art-tnt.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 312,
+        "releaseDate": "1975-12-01",
+        "trackNumber": 2,
+        "tags": ["anthem", "rock", "uplifting"]
+    },
+    {
+        "title": "Rock and Roll Ain't Noise Pollution",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Back in Black",
+            "coverArtUrl": "https://example.com/cover-art-backinblack.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 255,
+        "releaseDate": "1980-07-25",
+        "trackNumber": 10,
+        "tags": ["anthem", "rock", "defiant"]
+    },
+    {
+        "title": "Let There Be Rock",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Let There Be Rock",
+            "coverArtUrl": "https://example.com/cover-art-letthereberock.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 366,
+        "releaseDate": "1977-03-21",
+        "trackNumber": 1,
+        "tags": ["raw", "energetic", "rock"]
+    },
+    {
+        "title": "Sin City",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Powerage",
+            "coverArtUrl": "https://example.com/cover-art-powerage.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 287,
+        "releaseDate": "1978-05-05",
+        "trackNumber": 3,
+        "tags": ["gritty", "rock", "raw"]
+    },
+    {
+        "title": "Have a Drink on Me",
+        "artist": {
+            "name": "AC/DC"
+        },
+        "album": {
+            "title": "Back in Black",
+            "coverArtUrl": "https://example.com/cover-art-backinblack.jpg"
+        },
+        "genre": "Hard Rock",
+        "duration": 235,
+        "releaseDate": "1980-07-25",
+        "trackNumber": 9,
+        "tags": ["party", "rock", "fun"]
+    },
+    {
+        "title": "Bohemian Rhapsody",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "A Night at the Opera",
+            "coverArtUrl": "https://example.com/cover-art-nightattheopera.jpg"
+        },
+        "genre": "Rock",
+        "duration": 354,
+        "releaseDate": "1975-10-31",
+        "trackNumber": 11,
+        "tags": ["epic", "opera", "iconic"]
+    },
+    {
+        "title": "We Will Rock You",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "News of the World",
+            "coverArtUrl": "https://example.com/cover-art-newsoftheworld.jpg"
+        },
+        "genre": "Rock",
+        "duration": 122,
+        "releaseDate": "1977-10-28",
+        "trackNumber": 1,
+        "tags": ["anthem", "stadium", "rock"]
+    },
+    {
+        "title": "We Are the Champions",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "News of the World",
+            "coverArtUrl": "https://example.com/cover-art-newsoftheworld.jpg"
+        },
+        "genre": "Rock",
+        "duration": 180,
+        "releaseDate": "1977-10-28",
+        "trackNumber": 2,
+        "tags": ["anthem", "victory", "rock"]
+    },
+    {
+        "title": "Another One Bites the Dust",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "The Game",
+            "coverArtUrl": "https://example.com/cover-art-thegame.jpg"
+        },
+        "genre": "Funk Rock",
+        "duration": 215,
+        "releaseDate": "1980-06-30",
+        "trackNumber": 3,
+        "tags": ["funky", "catchy", "rock"]
+    },
+    {
+        "title": "Don't Stop Me Now",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "Jazz",
+            "coverArtUrl": "https://example.com/cover-art-jazz.jpg"
+        },
+        "genre": "Rock",
+        "duration": 210,
+        "releaseDate": "1978-11-10",
+        "trackNumber": 7,
+        "tags": ["upbeat", "energetic", "party"]
+    },
+    {
+        "title": "Somebody to Love",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "A Day at the Races",
+            "coverArtUrl": "https://example.com/cover-art-dayattheraces.jpg"
+        },
+        "genre": "Rock",
+        "duration": 295,
+        "releaseDate": "1976-12-10",
+        "trackNumber": 2,
+        "tags": ["emotional", "gospel", "rock"]
+    },
+    {
+        "title": "Killer Queen",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "Sheer Heart Attack",
+            "coverArtUrl": "https://example.com/cover-art-sheerheartattack.jpg"
+        },
+        "genre": "Rock",
+        "duration": 180,
+        "releaseDate": "1974-10-11",
+        "trackNumber": 2,
+        "tags": ["glam", "catchy", "rock"]
+    },
+    {
+        "title": "Radio Ga Ga",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "The Works",
+            "coverArtUrl": "https://example.com/cover-art-theworks.jpg"
+        },
+        "genre": "Pop Rock",
+        "duration": 345,
+        "releaseDate": "1984-01-23",
+        "trackNumber": 1,
+        "tags": ["anthem", "pop", "rock"]
+    },
+    {
+        "title": "I Want to Break Free",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "The Works",
+            "coverArtUrl": "https://example.com/cover-art-theworks.jpg"
+        },
+        "genre": "Pop Rock",
+        "duration": 258,
+        "releaseDate": "1984-01-23",
+        "trackNumber": 3,
+        "tags": ["catchy", "liberating", "rock"]
+    },
+    {
+        "title": "Under Pressure",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "Hot Space",
+            "coverArtUrl": "https://example.com/cover-art-hotspace.jpg"
+        },
+        "genre": "Rock",
+        "duration": 248,
+        "releaseDate": "1981-10-26",
+        "trackNumber": 6,
+        "tags": ["collaboration", "emotional", "rock"]
+    },
+    {
+        "title": "Crazy Little Thing Called Love",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "The Game",
+            "coverArtUrl": "https://example.com/cover-art-thegame.jpg"
+        },
+        "genre": "Rockabilly",
+        "duration": 163,
+        "releaseDate": "1980-06-30",
+        "trackNumber": 1,
+        "tags": ["catchy", "retro", "rock"]
+    },
+    {
+        "title": "Fat Bottomed Girls",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "Jazz",
+            "coverArtUrl": "https://example.com/cover-art-jazz.jpg"
+        },
+        "genre": "Rock",
+        "duration": 257,
+        "releaseDate": "1978-11-10",
+        "trackNumber": 2,
+        "tags": ["fun", "rock", "anthem"]
+    },
+    {
+        "title": "Bicycle Race",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "Jazz",
+            "coverArtUrl": "https://example.com/cover-art-jazz.jpg"
+        },
+        "genre": "Rock",
+        "duration": 183,
+        "releaseDate": "1978-11-10",
+        "trackNumber": 6,
+        "tags": ["quirky", "fun", "rock"]
+    },
+    {
+        "title": "The Show Must Go On",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "Innuendo",
+            "coverArtUrl": "https://example.com/cover-art-innuendo.jpg"
+        },
+        "genre": "Rock",
+        "duration": 264,
+        "releaseDate": "1991-10-14",
+        "trackNumber": 11,
+        "tags": ["emotional", "epic", "rock"]
+    },
+    {
+        "title": "A Kind of Magic",
+        "artist": {
+            "name": "Queen"
+        },
+        "album": {
+            "title": "A Kind of Magic",
+            "coverArtUrl": "https://example.com/cover-art-akindofmagic.jpg"
+        },
+        "genre": "Pop Rock",
+        "duration": 262,
+        "releaseDate": "1986-06-02",
+        "trackNumber": 1,
+        "tags": ["magical", "catchy", "rock"]
+    },
+    {
+        "title": "Basket Case",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "Dookie",
+            "coverArtUrl": "https://example.com/cover-art-dookie.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 182,
+        "releaseDate": "1994-02-01",
+        "trackNumber": 5,
+        "tags": ["iconic", "90s", "punk"]
+    },
+    {
+        "title": "American Idiot",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "American Idiot",
+            "coverArtUrl": "https://example.com/cover-art-americanidiot.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 174,
+        "releaseDate": "2004-09-21",
+        "trackNumber": 1,
+        "tags": ["political", "anthem", "punk"]
+    },
+    {
+        "title": "Wake Me Up When September Ends",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "American Idiot",
+            "coverArtUrl": "https://example.com/cover-art-americanidiot.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 285,
+        "releaseDate": "2004-09-21",
+        "trackNumber": 11,
+        "tags": ["emotional", "ballad", "rock"]
+    },
+    {
+        "title": "Boulevard of Broken Dreams",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "American Idiot",
+            "coverArtUrl": "https://example.com/cover-art-americanidiot.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 262,
+        "releaseDate": "2004-09-21",
+        "trackNumber": 6,
+        "tags": ["melancholic", "introspective", "rock"]
+    },
+    {
+        "title": "Good Riddance (Time of Your Life)",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "Nimrod",
+            "coverArtUrl": "https://example.com/cover-art-nimrod.jpg"
+        },
+        "genre": "Acoustic Rock",
+        "duration": 153,
+        "releaseDate": "1997-10-14",
+        "trackNumber": 18,
+        "tags": ["acoustic", "emotional", "ballad"]
+    },
+    {
+        "title": "Holiday",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "American Idiot",
+            "coverArtUrl": "https://example.com/cover-art-americanidiot.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 232,
+        "releaseDate": "2004-09-21",
+        "trackNumber": 4,
+        "tags": ["political", "energetic", "punk"]
+    },
+    {
+        "title": "21 Guns",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "21st Century Breakdown",
+            "coverArtUrl": "https://example.com/cover-art-21stcenturybreakdown.jpg"
+        },
+        "genre": "Rock",
+        "duration": 320,
+        "releaseDate": "2009-05-15",
+        "trackNumber": 10,
+        "tags": ["emotional", "ballad", "rock"]
+    },
+    {
+        "title": "When I Come Around",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "Dookie",
+            "coverArtUrl": "https://example.com/cover-art-dookie.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 178,
+        "releaseDate": "1994-02-01",
+        "trackNumber": 7,
+        "tags": ["catchy", "90s", "punk"]
+    },
+    {
+        "title": "Longview",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "Dookie",
+            "coverArtUrl": "https://example.com/cover-art-dookie.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 234,
+        "releaseDate": "1994-02-01",
+        "trackNumber": 3,
+        "tags": ["bass-heavy", "90s", "punk"]
+    },
+    {
+        "title": "Jesus of Suburbia",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "American Idiot",
+            "coverArtUrl": "https://example.com/cover-art-americanidiot.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 548,
+        "releaseDate": "2004-09-21",
+        "trackNumber": 2,
+        "tags": ["epic", "rock opera", "punk"]
+    },
+    {
+        "title": "Minority",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "Warning",
+            "coverArtUrl": "https://example.com/cover-art-warning.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 168,
+        "releaseDate": "2000-10-03",
+        "trackNumber": 2,
+        "tags": ["anthem", "rebellious", "punk"]
+    },
+    {
+        "title": "Know Your Enemy",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "21st Century Breakdown",
+            "coverArtUrl": "https://example.com/cover-art-21stcenturybreakdown.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 191,
+        "releaseDate": "2009-05-15",
+        "trackNumber": 3,
+        "tags": ["energetic", "political", "punk"]
+    },
+    {
+        "title": "She",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "Dookie",
+            "coverArtUrl": "https://example.com/cover-art-dookie.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 134,
+        "releaseDate": "1994-02-01",
+        "trackNumber": 2,
+        "tags": ["catchy", "90s", "punk"]
+    },
+    {
+        "title": "Warning",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "Warning",
+            "coverArtUrl": "https://example.com/cover-art-warning.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 221,
+        "releaseDate": "2000-10-03",
+        "trackNumber": 1,
+        "tags": ["catchy", "rock", "punk"]
+    },
+    {
+        "title": "St. Jimmy",
+        "artist": {
+            "name": "Green Day"
+        },
+        "album": {
+            "title": "American Idiot",
+            "coverArtUrl": "https://example.com/cover-art-americanidiot.jpg"
+        },
+        "genre": "Punk Rock",
+        "duration": 175,
+        "releaseDate": "2004-09-21",
+        "trackNumber": 7,
+        "tags": ["energetic", "punk", "rock opera"]
+    }
+]
