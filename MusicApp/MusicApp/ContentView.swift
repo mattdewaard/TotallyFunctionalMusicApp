@@ -7,14 +7,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showSearchInterface: Bool = false
+    
     var body: some View {
         TabView {
-            ExploreListView()
-                .tabItem {
-                    Label.init("Explore", systemImage: "waveform.badge.magnifyingglass")
-                }
+            Group {
+                ExploreListView(showSearchInterface: $showSearchInterface)
+                    .tabItem {
+                        Label.init("Explore", systemImage: "waveform.badge.magnifyingglass")
+                    }
+            }
+            .adaptiveBackground(.background)
         }
-        .adaptiveBackground(.background)
+        .overlay {
+            if showSearchInterface {
+                SearchView(isPresented: $showSearchInterface)
+            }
+        }
+        .animation(.easeInOut, value: showSearchInterface)
     }
 }
 

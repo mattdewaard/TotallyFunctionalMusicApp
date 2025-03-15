@@ -6,94 +6,115 @@
 
 import SwiftUI
 
-@MainActor
 struct ExploreListView: View {
     
     @StateObject private var viewModel = ExploreListViewModel()
+    @Binding var showSearchInterface: Bool
     
     var body: some View {
-        ScrollView(.vertical) {
-            LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
-                artistSection
-                albumSection
-                tracksSection
+        NavigationStack {
+            ScrollView(.vertical) {
+                LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
+                    searchIndicatorView
+                    artistSection
+                    Spacer(minLength: Theme.size(.size600))
+                    albumSection
+                    Spacer(minLength: Theme.size(.size600))
+                    tracksSection
+                }
+                .padding(.vertical, Theme.size(.size200))
             }
-            .padding(.vertical, Theme.size(.size200))
-        }
-        .clipped()
-        .task {
-            try? await viewModel.setup()
+            .coordinateSpace(name: "Scroll")
+            .clipped()
+            .scrollContentBackground(.hidden)
+            .adaptiveBackground(.backgroundContent)
+            .task {
+                try? await viewModel.setup()
+            }
         }
     }
     
-    @ViewBuilder
+    private var searchIndicatorView: some View {
+        GeometryReader { proxy in
+            Color.clear
+                .preference(key: FramePreferenceKey.self, value: proxy.frame(in: .named("Scroll")))
+        }
+        .onPreferenceChange(FramePreferenceKey.self) { value in
+            if value.minY > 80 && value.minY < UIScreen.main.bounds.height {
+                showSearchInterface = true
+            }
+        }
+    }
+    
     private var artistSection: some View {
         Section {
             ArtistCarouselView(artists: viewModel.displayArtists)
         } header: {
             sectionHeader("Explore artists") {
-                Button("See more") {
+                
+            }
+        }
+    }
+    
+    private var albumSection: some View {
+        Section {
+            Divider()
+            ForEach(viewModel.displayAlbums, id: \.id) { album in
+                AlbumView(album: album)
+                    .padding(.horizontal, Theme.size(.size200))
+            }
+            Divider()
+        } header: {
+            HStack {
+                sectionHeader("Explore albums") {
                     print("pressed")
                 }
             }
         }
     }
     
-    
-    @ViewBuilder
-    private var albumSection: some View {
-        Section {
-            ForEach(viewModel.displayAlbums, id: \.id) { album in
-                AlbumView(album: album)
-                    .padding(.horizontal, Theme.size(.size200))
-            }
-        } header: {
-            HStack {
-                sectionHeader("Explore albums") {
-                    Button("See more") {
-                        print("pressed")
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    @ViewBuilder
     private var tracksSection: some View {
         Section {
+            Divider()
             ForEach(viewModel.displayTracks, id: \.id) { track in
                 TrackView(track: track)
                     .padding(.horizontal, Theme.size(.size200))
             }
+            Divider()
         } header: {
             HStack {
                 sectionHeader("Explore tracks") {
-                    Button("See more") {
-                        print("pressed")
-                    }
+                    print("pressed")
                 }
             }
         }
     }
     
-    private func sectionHeader<Action: View>(_ title: String, @ViewBuilder action: ()->Action) -> some View {
-        HStack {
-            Text(title)
-                .adaptiveFont(.header(.medium))
-                .adaptiveForeground(.text)
-            Spacer()
-            action()
+    private func sectionHeader(_ title: String, action: @escaping ()->Void) -> some View {
+        Button(action: action) {
+            HStack {
+                Text(title)
+                    .adaptiveFont(.header(.medium))
+                    .adaptiveForeground(.text)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Image(systemName: "chevron.right")
+                    .resizable()
+                    .fontWeight(.bold)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: Theme.size(.size150))
+                    .adaptiveForeground(.tint)
+                    .frame(width: 40, height: 40, alignment: .trailing)
+            }
+            .padding(.bottom, Theme.size(.size100))
+            .padding(.horizontal, Theme.size(.size200))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .adaptiveBackground(.backgroundContent)
         }
-        .padding(.bottom, Theme.size(.size200))
-        .padding(.top, Theme.size(.size600))
-        .padding(.horizontal, Theme.size(.size200))
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .adaptiveBackground(.backgroundContent)
     }
 }
 
 #Preview {
-    ExploreListView()
+    ExploreListView(showSearchInterface: .constant(false))
 }
 
