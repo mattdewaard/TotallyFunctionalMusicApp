@@ -16,4 +16,8 @@ public final class DomainKitFacade {
         SearchFacade()
     }
     
+    public static var favourite: any FavouritesProtocol {
+        FavouritesFacade()
+    }
+    
 }
