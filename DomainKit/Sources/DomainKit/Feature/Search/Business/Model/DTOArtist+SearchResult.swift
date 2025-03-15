@@ -13,7 +13,7 @@ extension DTOArtist: UIOSearchResult {
     }
     
     var detail: String {
-        numberOfAlbums == 1 ? "1 album" : "\(numberOfAlbums) albums"
+        "\(numberOfAlbums) album".pluralIfNeeded(numberOfAlbums)
     }
     
 }

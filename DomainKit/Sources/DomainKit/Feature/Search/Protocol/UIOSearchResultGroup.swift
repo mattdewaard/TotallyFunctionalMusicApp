@@ -8,9 +8,7 @@ import Foundation
 
 public protocol UIOSearchResultGroup {
     
-    associatedtype Result = UIOSearchResult
-    
     var title: String { get }
-    var results: [Result] { get }
+    var results: [UIOSearchResult] { get }
     
 }

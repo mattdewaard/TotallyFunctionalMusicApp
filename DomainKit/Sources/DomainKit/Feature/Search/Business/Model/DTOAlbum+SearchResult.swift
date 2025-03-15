@@ -8,8 +8,12 @@ import Foundation
 
 extension DTOAlbum: UIOSearchResult {
     
+     public var imageUrl: String {
+         coverArtUrl
+     }
+     
     var detail: String {
-        tracks == 1 ? "1 track" : "\(tracks) tracks"
+        "\(tracks) track".pluralIfNeeded(tracks)
     }
     
 }

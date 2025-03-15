@@ -9,10 +9,11 @@ import Foundation
 extension DTOSearchResult: UIOSearchResultGroup {
     
     var title: String {
-        switch self {
-        case .albums: "Albums"
-        case .artists: "Artists"
-        case .tracks: "Tracks"
+        let count = results.count
+        return switch self {
+        case .albums: "\(count) album".pluralIfNeeded(count)
+        case .artists: "\(count) artist".pluralIfNeeded(count)
+        case .tracks: "\(count) track".pluralIfNeeded(count)
         }
     }
     

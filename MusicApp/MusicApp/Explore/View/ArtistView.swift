@@ -29,7 +29,7 @@ struct ArtistView: View {
     }
     
     private var albumsText: String {
-        artist.numberOfAlbums == 1 ? "1 album" : "\(artist.numberOfAlbums) albums"
+        "\(artist.numberOfAlbums) album".pluralIfNeeded(artist.numberOfAlbums)
     }
 }
 

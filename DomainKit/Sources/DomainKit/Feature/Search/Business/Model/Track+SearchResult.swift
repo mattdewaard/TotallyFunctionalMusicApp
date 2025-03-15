@@ -8,6 +8,10 @@ import Foundation
 
 extension DTOTrack: UIOSearchResult {
    
+    public var imageUrl: String {
+        album.coverArtUrl
+    }
+    
     public var detail: String {
         "\(album.title), \(artist.name)"
     }

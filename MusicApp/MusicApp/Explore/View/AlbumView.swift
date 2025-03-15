@@ -44,7 +44,7 @@ struct AlbumView: View {
     }
     
     private var tracksText: String {
-        album.tracks == 1 ? "1 track" : "\(album.tracks) tracks"
+        "\(album.tracks) track".pluralIfNeeded(album.tracks)
     }
     
 }

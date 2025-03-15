@@ -7,9 +7,12 @@
 import Foundation
 import DomainKit
 
+@MainActor
 final class SearchViewModel: ObservableObject {
     
     @Published var searchTerm: String = ""
+    @Published var showsEmptyState: Bool = false
+    @Published private(set) var results: [any UIOSearchResultGroup] = []
     
     private let usecase: any SearchProtocol
     
@@ -17,4 +20,16 @@ final class SearchViewModel: ObservableObject {
         self.usecase = usecase
     }
     
+    func search() {
+        Task {
+            let term = searchTerm.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !term.isEmpty else {
+                self.searchTerm = ""
+                return
+            }
+            let results = try await usecase.search(by: term)
+            self.results = results
+            self.showsEmptyState = results.isEmpty
+        }
+    }
 }

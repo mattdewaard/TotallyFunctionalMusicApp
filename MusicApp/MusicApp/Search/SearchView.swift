@@ -5,7 +5,7 @@
 //
 
 import SwiftUI
-
+import DomainKit
 struct SearchView: View {
     
     @StateObject private var viewModel = SearchViewModel()
@@ -14,7 +14,17 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
-           searchBar
+            searchBar
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 0, pinnedViews: .sectionHeaders) {
+                    ForEach(Array(viewModel.results.enumerated()), id: \.offset) { (_, group) in
+                        resultsSection(from: group)
+                        Spacer(minLength: Theme.size(.size600))
+                    }
+                    
+                }
+            }
+            .animation(.linear, value: viewModel.results.flatMap(\.results).count)
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .background {
@@ -23,6 +33,15 @@ struct SearchView: View {
                 .adaptiveForeground(.backgroundContent)
                 .transition(.opacity)
         }
+        .overlay {
+            if viewModel.showsEmptyState {
+                NoSearchResultsView()
+                    .padding(.horizontal, Theme.size(.size600))
+                    .ignoresSafeArea()
+                    .transition(.opacity)
+            }
+        }
+        .animation(.easeIn, value: viewModel.showsEmptyState)
         .onAppear() {
             focued = true
         }
@@ -31,6 +50,33 @@ struct SearchView: View {
                 isPresented = false
             }
         }
+    }
+    
+    @ViewBuilder
+    private func resultsSection(from group: any UIOSearchResultGroup) -> some View {
+        Section {
+            Divider()
+            ForEach(Array(group.results.enumerated()), id: \.offset) { (_, result) in
+                SearchResultView(result: result)
+                    
+            }
+        } header: {
+            HStack {
+                Text(group.title)
+                    .adaptiveFont(.header(.medium))
+                    .adaptiveForeground(.text)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Spacer()
+            }
+            .padding(.bottom, Theme.size(.size100))
+            .padding(.horizontal, Theme.size(.size200))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .adaptiveBackground(.backgroundContent)
+        }
+        .transition(.asymmetric(
+            insertion: .offset(y: 20),
+            removal: .opacity)
+        )
     }
     
     @ViewBuilder
@@ -44,9 +90,18 @@ struct SearchView: View {
                     .focused($focued)
                     .adaptiveFont(.body1)
                     .adaptiveForeground(.text)
+                    .submitLabel(.search)
+                    .onSubmit { [viewModel] in
+                        viewModel.search()
+                    }
                 
-                Image(systemName: "xmark")
-                    .adaptiveForeground(.tint)
+                Button {
+                    viewModel.searchTerm = ""
+                    isPresented = false
+                } label: {
+                    Image(systemName: "xmark")
+                        .adaptiveForeground(.tint)
+                }
             }
             .padding(Theme.size(.size200))
             .adaptiveBackground(.backgroundContent)

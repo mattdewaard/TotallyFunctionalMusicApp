@@ -112,6 +112,7 @@ struct ExploreListView: View {
             .adaptiveBackground(.backgroundContent)
         }
     }
+    
 }
 
 #Preview {

@@ -8,6 +8,7 @@ import Foundation
 
 public protocol UIOSearchResult {
     
+    var imageUrl: String { get }
     var title: String { get }
     var detail: String { get }
     
