@@ -8,7 +8,7 @@ import Foundation
 
 final class RecentsUseCase {
     
-    func add(_ trackId: String) throws {
+    func add(_ trackId: String) async throws {
         var recents = try RecentsRepository().get()
         recents.insert(trackId, at: 0)
         try RecentsRepository().store(Array(recents.prefix(10)))
@@ -17,7 +17,7 @@ final class RecentsUseCase {
     func get() async throws -> [DTOTrack] {
         let recentIds = try RecentsRepository().get()
         let tracks = try await TracksFacade().get()
-        return tracks.filter { recentIds.contains($0.trackId) }
+        return tracks.filter { recentIds.contains($0.id) }
     }
     
 }

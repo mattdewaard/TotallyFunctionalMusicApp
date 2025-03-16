@@ -14,5 +14,6 @@ public protocol UIOTrack {
     var albumName: String { get }
     var artistName: String { get }
     var length: String { get }
+    var duration: TimeInterval { get }
     
 }

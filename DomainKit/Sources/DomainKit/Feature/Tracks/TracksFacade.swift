@@ -13,3 +13,11 @@ final class TracksFacade {
     }
     
 }
+
+extension TracksFacade: TracksProtocol {
+    
+    func getTrack(id: String) async throws -> DTOTrack {
+        try await TracksUseCase().get(id: id)
+    }
+    
+}

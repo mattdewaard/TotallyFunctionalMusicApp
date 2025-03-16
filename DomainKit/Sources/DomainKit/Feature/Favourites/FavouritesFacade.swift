@@ -16,12 +16,16 @@ extension FavouritesFacade: FavouriteTracksProtocol {
         try await FavouritesUseCase().get()
     }
     
+    func isFavourite(_ trackId: String) async throws -> Bool {
+        try await FavouritesUseCase().isFavourite(trackId)
+    }
+    
     func addFavourite(_ trackId: String) async throws {
-        try FavouritesUseCase().add(trackId)
+        try await FavouritesUseCase().add(trackId)
     }
     
     func removeFavourite(_ trackId: String) async throws {
-        try FavouritesUseCase().remove(trackId)
+        try await FavouritesUseCase().remove(trackId)
     }
     
 }
@@ -33,7 +37,7 @@ extension FavouritesFacade: RecentTracksProtocol {
     }
     
     func addRecent(_ trackId: String) async throws {
-        try RecentsUseCase().add(trackId)
+        try await RecentsUseCase().add(trackId)
     }
     
 }

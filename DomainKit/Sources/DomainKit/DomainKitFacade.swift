@@ -20,4 +20,8 @@ public final class DomainKitFacade {
         FavouritesFacade()
     }
     
+    public static var tracks: any TracksProtocol {
+        TracksFacade()
+    }
+    
 }

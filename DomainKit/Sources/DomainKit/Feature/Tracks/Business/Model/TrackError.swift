@@ -8,4 +8,5 @@ import Foundation
 
 public enum TrackError: Error {
     case trackJsonNotFound
+    case trackNotFound
 }

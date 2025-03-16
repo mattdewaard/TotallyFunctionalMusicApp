@@ -17,4 +17,16 @@ final class TracksUseCase {
         return tracks
     }
     
+    func get(id: String) async throws -> DTOTrack {
+        guard let jsonUrl = Bundle.module.url(forResource: "songs", withExtension: "json") else {
+            throw TrackError.trackJsonNotFound
+        }
+        let jsonData = try Data(contentsOf: jsonUrl)
+        let tracks = try JSONDecoder().decode([DTOTrack].self, from: jsonData)
+        guard let track = tracks.first(where: { $0.id == id }) else {
+            throw TrackError.trackNotFound
+        }
+        return track
+    }
+    
 }

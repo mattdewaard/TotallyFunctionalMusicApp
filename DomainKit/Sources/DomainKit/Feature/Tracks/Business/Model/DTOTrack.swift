@@ -32,10 +32,6 @@ public struct DTOTrack: Codable {
 
 extension DTOTrack {
     
-    var trackId: String {
-        [artist.name, album.title, title].joined(separator: "-")
-    }
-    
     var releaseDate: Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
