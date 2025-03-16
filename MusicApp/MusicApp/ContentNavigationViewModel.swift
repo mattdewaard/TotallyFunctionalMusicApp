@@ -9,7 +9,6 @@ import DomainKit
 
 final class ContentNavigationViewModel: ObservableObject {
     
-    @Published private(set) var showSearchInterface: Bool = false
     @Published private(set) var track: UIOTrack?
     @Published private(set) var showTrackAsFocused: Bool = false
     
@@ -24,14 +23,6 @@ final class ContentNavigationViewModel: ObservableObject {
     
     func closePlayer() {
         track = nil
-    }
-    
-    func beginSearch() {
-        showSearchInterface = true
-    }
-    
-    func dismissSearch() {
-        showSearchInterface = false
     }
     
 }

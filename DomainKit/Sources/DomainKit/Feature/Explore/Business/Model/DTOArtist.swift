@@ -6,7 +6,7 @@
 
 import Foundation
 
-struct DTOArtist {
+struct DTOArtist: Sendable {
     
     let name: String
     let albums: [DTOAlbum]

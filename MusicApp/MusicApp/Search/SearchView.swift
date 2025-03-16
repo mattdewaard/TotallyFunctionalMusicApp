@@ -13,71 +13,171 @@ struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     @FocusState private var focued: Bool
     
+    @State private var destination: ExplorePresentation?
+    
     var body: some View {
-        VStack {
-            searchBar
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 0, pinnedViews: .sectionHeaders) {
-                    ForEach(Array(viewModel.results.enumerated()), id: \.offset) { (_, group) in
-                        resultsSection(from: group)
-                        Spacer(minLength: Theme.size(.size600))
-                    }
-                    
+        NavigationStack {
+            VStack {
+                searchBar
+                ScrollView {
+                    scrollContent
                 }
+                .animation(.linear, value: viewModel.results.map(\.count).reduce(0, +))
             }
-            .animation(.linear, value: viewModel.results.flatMap(\.results).count)
-        }
-        .frame(maxHeight: .infinity, alignment: .top)
-        .background {
-            Rectangle()
-                .ignoresSafeArea()
-                .adaptiveForeground(.background)
-                .transition(.opacity)
-        }
-        .overlay {
-            if viewModel.showsEmptyState {
-                NoSearchResultsView()
-                    .padding(.horizontal, Theme.size(.size600))
+            .frame(maxHeight: .infinity, alignment: .top)
+            .background {
+                Rectangle()
                     .ignoresSafeArea()
+                    .adaptiveForeground(.background)
                     .transition(.opacity)
             }
-        }
-        .animation(.easeIn, value: viewModel.showsEmptyState)
-        .onAppear() {
-            focued = true
-        }
-        .onChange(of: focued) { _, _ in
-            if !focued && viewModel.searchTerm.isEmpty {
-                navigation.dismissSearch()
+            .overlay {
+                if viewModel.showsEmptyState {
+                    NoSearchResultsView()
+                        .padding(.horizontal, Theme.size(.size600))
+                        .ignoresSafeArea()
+                        .transition(.opacity)
+                }
+            }
+            .animation(.easeIn, value: viewModel.showsEmptyState)
+            .task {
+                try? await viewModel.setup()
+            }
+            .onAppear() {
+                focued = true
+            }
+            .navigationDestination(item: $destination) { destination in
+                switch destination.type {
+                case .album:
+                    if let album = viewModel.getAlbum(at: destination.index) {
+                        AlbumListView(album: album)
+                    }
+                case .artist:
+                    if let artist = viewModel.getArtist(at: destination.index) {
+                        ArtistListView(artist: artist)
+                    }
+                }
             }
         }
     }
     
+    
     @ViewBuilder
-    private func resultsSection(from group: any UIOSearchResultGroup) -> some View {
+    private var recentsSection: some View {
         Section {
             Divider()
-            ForEach(Array(group.results.enumerated()), id: \.offset) { (_, result) in
-                SearchResultView(result: result)
-                    
+            ForEach(Array(viewModel.recents.enumerated()), id: \.offset) { (_, value) in
+                Button {
+                    navigation.play(value)
+                } label: {
+                    SearchResultView(
+                        imageUrl: value.coverArtUrl,
+                        title: value.title,
+                        detail: value.artistName
+                    )
+                }
+                .overlay(alignment: .bottom) {
+                    Divider()
+                        .padding(.horizontal, Theme.size(.size200))
+                }
             }
         } header: {
-            HStack {
-                Text(group.title)
-                    .adaptiveFont(.header(.medium))
-                    .adaptiveForeground(.text)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Spacer()
-            }
-            .padding(.bottom, Theme.size(.size100))
-            .padding(.horizontal, Theme.size(.size200))
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .adaptiveBackground(.background)
+            sectionHeader("Recents")
         }
-        .transition(.asymmetric(
-            insertion: .offset(y: 20),
-            removal: .opacity)
-        )
+    }
+    
+    private var scrollContent: some View {
+        LazyVStack(alignment: .leading, spacing: 0, pinnedViews: .sectionHeaders) {
+            
+            if !viewModel.showsEmptyState && viewModel.results.isEmpty {
+                recentsSection
+            }
+            
+            ForEach(Array(viewModel.results.enumerated()), id: \.offset) { (_, group) in
+                switch group {
+                case .artists(let artists):
+                    Section {
+                        Divider()
+                        ForEach(Array(artists.enumerated()), id: \.offset) { (index, value) in
+                            Button {
+                                destination = .init(type: .artist, index: index)
+                            } label: {
+                                SearchResultView(
+                                    imageUrl: value.imageUrl,
+                                    title: value.name,
+                                    detail: "\(value.albums.count) albums".pluralIfNeeded(value.albums.count)
+                                )
+                            }
+                            .overlay(alignment: .bottom) {
+                                Divider()
+                                    .padding(.horizontal, Theme.size(.size200))
+                            }
+                        }
+                    } header: {
+                        sectionHeader(group.title)
+                    }
+                case .albums(let albums):
+                    Section {
+                        Divider()
+                        ForEach(Array(albums.enumerated()), id: \.offset) { (index, value) in
+                            Button {
+                                destination = .init(type: .album, index: index)
+                            } label: {
+                                SearchResultView(
+                                    imageUrl: value.coverArtUrl,
+                                    title: value.title,
+                                    detail: "\(value.tracks.count) tracks".pluralIfNeeded(value.tracks.count)
+                                )
+                            }
+                            .overlay(alignment: .bottom) {
+                                Divider()
+                                    .padding(.horizontal, Theme.size(.size200))
+                            }
+                        }
+                    } header: {
+                        sectionHeader(group.title)
+                    }
+                case .tracks(let tracks):
+                    Section {
+                        Divider()
+                        ForEach(Array(tracks.enumerated()), id: \.offset) { (_, value) in
+                            Button {
+                                navigation.play(value)
+                            } label: {
+                                SearchResultView(
+                                    imageUrl: value.coverArtUrl,
+                                    title: value.title,
+                                    detail: value.artistName
+                                )
+                            }
+                            .overlay(alignment: .bottom) {
+                                Divider()
+                                    .padding(.horizontal, Theme.size(.size200))
+                            }
+                        }
+                    } header: {
+                        sectionHeader(group.title)
+                    }
+                }
+                Spacer(minLength: Theme.size(.size600))
+            }
+            
+        }
+    }
+    
+    
+    private func sectionHeader(_ title: String) -> some View {
+        HStack {
+            Text(title)
+                .adaptiveFont(.header(.medium))
+                .adaptiveForeground(.text)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Spacer()
+        }
+        .padding(.bottom, Theme.size(.size100))
+        .padding(.horizontal, Theme.size(.size200))
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .adaptiveBackground(.background)
     }
     
     @ViewBuilder
@@ -95,14 +195,6 @@ struct SearchView: View {
                     .onSubmit { [viewModel] in
                         viewModel.search()
                     }
-                
-                Button {
-                    viewModel.searchTerm = ""
-                    navigation.dismissSearch()
-                } label: {
-                    Image(systemName: "xmark")
-                        .adaptiveForeground(.tint)
-                }
             }
             .padding(Theme.size(.size200))
             .adaptiveBackground(.backgroundContent)

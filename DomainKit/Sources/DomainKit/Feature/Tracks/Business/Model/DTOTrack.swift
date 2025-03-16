@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct DTOTrack: Codable {
+public struct DTOTrack: Codable, Sendable {
     
     enum CodingKeys: String, CodingKey {
         case title

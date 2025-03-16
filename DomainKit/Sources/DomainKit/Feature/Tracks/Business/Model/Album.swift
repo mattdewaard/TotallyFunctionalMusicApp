@@ -8,7 +8,7 @@ import Foundation
 
 extension DTOTrack {
     
-    public struct Album: Codable {
+    public struct Album: Codable, Sendable {
         
         public let title: String
         public let coverArtUrl: String

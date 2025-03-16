@@ -12,12 +12,21 @@ final class SearchViewModel: ObservableObject {
     
     @Published var searchTerm: String = ""
     @Published var showsEmptyState: Bool = false
-    @Published private(set) var results: [any UIOSearchResultGroup] = []
+    @Published private(set) var results: [UIOSearchResult] = []
+    @Published private(set) var recents: [any UIOTrack] = []
     
-    private let usecase: any SearchProtocol
+    private let searchUsecase: any SearchProtocol
+    private let recentUsecase: any RecentTracksProtocol
     
-    init(usecase: any SearchProtocol = DomainKitFacade.search) {
-        self.usecase = usecase
+    init(searchUsecase: any SearchProtocol = DomainKitFacade.search,
+         recentUsecase: any RecentTracksProtocol = DomainKitFacade.favourite) {
+        self.searchUsecase = searchUsecase
+        self.recentUsecase = recentUsecase
+    }
+    
+    func setup() async throws {
+        let recents = try await recentUsecase.getRecents()
+        self.recents = recents
     }
     
     func search() {
@@ -27,9 +36,28 @@ final class SearchViewModel: ObservableObject {
                 self.searchTerm = ""
                 return
             }
-            let results = try await usecase.search(by: term)
+            let results = try await searchUsecase.search(by: term)
             self.results = results
             self.showsEmptyState = results.isEmpty
         }
     }
+    
+    func getArtist(at index: Int) -> (any UIOArtist)? {
+        for result in results {
+            if case .artists(let array) = result {
+                return array[index]
+            }
+        }
+        return nil
+    }
+    
+    func getAlbum(at index: Int) -> (any UIOAlbum)? {
+        for result in results {
+            if case .albums(let array) = result {
+                return array[index]
+            }
+        }
+        return nil
+    }
+    
 }

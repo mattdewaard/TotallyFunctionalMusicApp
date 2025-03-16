@@ -8,13 +8,13 @@ import Foundation
 
 final class SearchUseCase {
     
-    func search(by term: String) async throws -> [DTOSearchResult] {
+    func search(by term: String) async throws -> [UIOSearchResult] {
         let searchTerm = term.lowercased()
         
         let matchingTracks = try await getMatchingTracks(for: searchTerm)
         let (matchingArtists, matchingAlbums) = try await getMatchingArtistsAndAlbums(for: searchTerm)
         
-        var results: [DTOSearchResult] = []
+        var results: [UIOSearchResult] = []
         if !matchingArtists.isEmpty {
             results.append(.artists(matchingArtists))
         }

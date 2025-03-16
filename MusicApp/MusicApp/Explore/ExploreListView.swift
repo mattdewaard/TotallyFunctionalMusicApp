@@ -27,7 +27,6 @@ struct ExploreListView: View {
         NavigationStack {
             ScrollView(.vertical) {
                 LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
-                    searchIndicatorView
                     artistSection
                     Spacer(minLength: Theme.size(.size600))
                     albumSection
@@ -57,17 +56,6 @@ struct ExploreListView: View {
         
     }
     
-    private var searchIndicatorView: some View {
-        GeometryReader { proxy in
-            Color.clear
-                .preference(key: FramePreferenceKey.self, value: proxy.frame(in: .named("Scroll")))
-        }
-        .onPreferenceChange(FramePreferenceKey.self) { value in
-            if value.minY > 80 && value.minY < UIScreen.main.bounds.height {
-                navigation.beginSearch()
-            }
-        }
-    }
     
     private var artistSection: some View {
         Section {
@@ -148,8 +136,8 @@ struct ExploreListView: View {
             .padding(.bottom, Theme.size(.size100))
             .padding(.horizontal, Theme.size(.size200))
             .frame(maxWidth: .infinity, alignment: .leading)
-            .adaptiveBackground(.background)
         }
+        .adaptiveBackground(.background)
     }
     
 }

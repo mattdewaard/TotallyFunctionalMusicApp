@@ -8,7 +8,7 @@ import Foundation
 
 final class SearchFacade: SearchProtocol {
     
-    func search(by term: String) async throws -> [DTOSearchResult] {
+    func search(by term: String) async throws -> [UIOSearchResult] {
         try await SearchUseCase().search(by: term)
     }
     

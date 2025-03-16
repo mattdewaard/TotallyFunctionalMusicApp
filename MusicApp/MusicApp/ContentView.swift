@@ -18,6 +18,12 @@ struct ContentView: View {
                     .tabItem {
                         Label.init("Explore", systemImage: "waveform.badge.magnifyingglass")
                     }
+                
+                SearchView()
+                    .tabItem {
+                        Label.init("Search", systemImage: "magnifyingglass")
+                    }
+                
             }
             .adaptiveBackground(.background)
         }
@@ -28,14 +34,8 @@ struct ContentView: View {
                     .id(track.id)
             }
         }
-        .overlay {
-            if navigation.showSearchInterface {
-                SearchView()
-            }
-        }
         .toolbarBackground(Theme.color(.backgroundContent, in: colorScheme), for: .tabBar)
         .environmentObject(navigation)
-        .animation(.easeInOut, value: navigation.showSearchInterface)
         .animation(.spring(), value: navigation.showTrackAsFocused && navigation.track != nil)
     }
 }

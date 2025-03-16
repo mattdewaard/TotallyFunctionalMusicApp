@@ -8,7 +8,7 @@ import Foundation
 
 extension DTOTrack {
     
-    public struct Artist: Codable {
+    public struct Artist: Codable, Sendable {
         
         public let name: String
         

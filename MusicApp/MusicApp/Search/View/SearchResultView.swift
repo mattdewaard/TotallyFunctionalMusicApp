@@ -9,20 +9,22 @@ import DomainKit
 
 struct SearchResultView: View {
     
-    let result: UIOSearchResult
+    let imageUrl: String
+    let title: String
+    let detail: String
     
     var body: some View {
         HStack(spacing: Theme.size(.size100)) {
             
-            ImageView(url: result.imageUrl)
+            ImageView(url: imageUrl)
                 .frame(width: Theme.size(.size500), height: Theme.size(.size500))
                 .adaptiveForeground(.tint)
             
             VStack(alignment: .leading, spacing: Theme.size(.size050)) {
-                Text(result.title)
+                Text(title)
                     .adaptiveFont(.body1(.medium))
                     .adaptiveForeground(.text)
-                Text(result.detail)
+                Text(detail)
                     .adaptiveFont(.body2)
                     .adaptiveForeground(.subtext)
             }
@@ -30,9 +32,6 @@ struct SearchResultView: View {
         }
         .padding(Theme.size(.size200))
         .adaptiveBackground(.backgroundContent)
-        .overlay(alignment: .bottom) {
-            Divider()
-        }
     }
     
 }

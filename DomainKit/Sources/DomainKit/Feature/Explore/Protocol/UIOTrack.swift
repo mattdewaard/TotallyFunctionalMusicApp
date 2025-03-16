@@ -6,7 +6,7 @@
 
 import Foundation
 
-public protocol UIOTrack {
+public protocol UIOTrack: Sendable {
     
     var id: String { get }
     var title: String { get }

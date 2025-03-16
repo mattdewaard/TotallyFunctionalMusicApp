@@ -6,7 +6,7 @@
 
 import Foundation
 
-public protocol UIOArtist {
+public protocol UIOArtist: Sendable {
     
     associatedtype Album: UIOAlbum
     

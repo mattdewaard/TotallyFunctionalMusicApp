@@ -6,7 +6,7 @@
 
 import Foundation
 
-public protocol UIOAlbum {
+public protocol UIOAlbum: Sendable {
     
     associatedtype Track: UIOTrack
     

@@ -8,8 +8,6 @@ import Foundation
 
 public protocol SearchProtocol {
     
-    associatedtype SearchResult: UIOSearchResultGroup
-    
-    func search(by term: String) async throws -> [SearchResult]
+    func search(by term: String) async throws -> [UIOSearchResult]
     
 }
