@@ -29,4 +29,13 @@ final class PlayerViewModel: ObservableObject {
         try? await favouritesUsecase.addRecent(track.id)
     }
     
+    func toggleFavourite() async throws {
+        if isFavourite {
+            try await favouritesUsecase.removeFavourite(track.id)
+        } else {
+            try await favouritesUsecase.addFavourite(track.id)
+        }
+        isFavourite = try await favouritesUsecase.isFavourite(track.id)
+    }
+    
 }

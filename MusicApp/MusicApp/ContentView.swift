@@ -8,27 +8,38 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showSearchInterface: Bool = false
+    @StateObject private var navigation = ContentNavigationViewModel()
     
     var body: some View {
         TabView {
             Group {
-                ExploreListView(showSearchInterface: $showSearchInterface)
+                ExploreListView()
                     .tabItem {
                         Label.init("Explore", systemImage: "waveform.badge.magnifyingglass")
                     }
             }
             .adaptiveBackground(.background)
         }
+        .ignoresSafeArea()
         .overlay {
-            if showSearchInterface {
-                SearchView(isPresented: $showSearchInterface)
+            if let track = navigation.track, navigation.showTrackAsFocused {
+                PlayerView(track: track)
+                    .id(track.id)
+                    .transition(.move(edge: .bottom).combined(with: .offset(y: 50)))
             }
         }
-        .animation(.easeInOut, value: showSearchInterface)
+        .overlay {
+            if navigation.showSearchInterface {
+                SearchView()
+            }
+        }
+        .environmentObject(navigation)
+        .animation(.easeInOut, value: navigation.showSearchInterface)
+        .animation(.spring(), value: navigation.showTrackAsFocused && navigation.track != nil)
     }
 }
 
 #Preview {
     ContentView()
 }
+

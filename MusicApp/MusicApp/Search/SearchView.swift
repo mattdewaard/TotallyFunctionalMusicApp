@@ -6,11 +6,12 @@
 
 import SwiftUI
 import DomainKit
+
 struct SearchView: View {
     
+    @EnvironmentObject private var navigation: ContentNavigationViewModel
     @StateObject private var viewModel = SearchViewModel()
     @FocusState private var focued: Bool
-    @Binding var isPresented: Bool
     
     var body: some View {
         VStack {
@@ -45,9 +46,9 @@ struct SearchView: View {
         .onAppear() {
             focued = true
         }
-        .onChange(of: focued) { _ in
+        .onChange(of: focued) { _, _ in
             if !focued && viewModel.searchTerm.isEmpty {
-                isPresented = false
+                navigation.dismissSearch()
             }
         }
     }
@@ -97,7 +98,7 @@ struct SearchView: View {
                 
                 Button {
                     viewModel.searchTerm = ""
-                    isPresented = false
+                    navigation.dismissSearch()
                 } label: {
                     Image(systemName: "xmark")
                         .adaptiveForeground(.tint)
@@ -115,5 +116,6 @@ struct SearchView: View {
 }
 
 #Preview {
-    SearchView(isPresented: .constant(true))
+    SearchView()
+        .environmentObject(ContentNavigationViewModel())
 }

@@ -8,8 +8,8 @@ import SwiftUI
 
 struct ExploreListView: View {
     
+    @EnvironmentObject var navigation: ContentNavigationViewModel
     @StateObject private var viewModel = ExploreListViewModel()
-    @Binding var showSearchInterface: Bool
     
     var body: some View {
         NavigationStack {
@@ -41,7 +41,7 @@ struct ExploreListView: View {
         }
         .onPreferenceChange(FramePreferenceKey.self) { value in
             if value.minY > 80 && value.minY < UIScreen.main.bounds.height {
-                showSearchInterface = true
+                navigation.beginSearch()
             }
         }
     }
@@ -116,6 +116,7 @@ struct ExploreListView: View {
 }
 
 #Preview {
-    ExploreListView(showSearchInterface: .constant(false))
+    ExploreListView()
+        .environmentObject(ContentNavigationViewModel())
 }
 
