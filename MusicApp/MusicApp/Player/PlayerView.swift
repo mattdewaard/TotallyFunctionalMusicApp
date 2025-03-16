@@ -24,11 +24,13 @@ struct PlayerView: View {
             FullscreenPlayerView(track: track)
                 .environmentObject(player)
                 .transition(.move(edge: .bottom).combined(with: .offset(y: 50)))
+                .zIndex(1)
         } else {
             MinimizedPlayerView(track: track)
                 .padding(Theme.size(.size200))
                 .environmentObject(player)
                 .offset(y: -40)
+                .zIndex(0)
         }
     }
     

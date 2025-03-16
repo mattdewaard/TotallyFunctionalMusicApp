@@ -42,6 +42,12 @@ final class SearchViewModel: ObservableObject {
         }
     }
     
+    func reset() {
+        searchTerm = ""
+        results = []
+        showsEmptyState = false
+    }
+    
     func getArtist(at index: Int) -> (any UIOArtist)? {
         for result in results {
             if case .artists(let array) = result {

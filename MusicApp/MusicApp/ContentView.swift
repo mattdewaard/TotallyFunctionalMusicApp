@@ -36,7 +36,8 @@ struct ContentView: View {
         }
         .toolbarBackground(Theme.color(.backgroundContent, in: colorScheme), for: .tabBar)
         .environmentObject(navigation)
-        .animation(.spring(), value: navigation.showTrackAsFocused && navigation.track != nil)
+        .animation(.spring(), value: navigation.showTrackAsFocused)
+        .animation(.spring(), value: navigation.track != nil)
     }
 }
 

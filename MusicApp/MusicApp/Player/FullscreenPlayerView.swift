@@ -42,7 +42,7 @@ struct FullscreenPlayerView: View {
         .task {
             try? await viewModel.loadTrack()
         }
-        .modifier(DismissGesture(cornerRadius: 32, threshold: 300, onDismiss: {
+        .modifier(MaskingDismissGesture(cornerRadius: 32, threshold: 300, onDismiss: {
            dismiss()
         }))
     }

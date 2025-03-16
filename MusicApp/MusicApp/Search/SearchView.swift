@@ -44,7 +44,9 @@ struct SearchView: View {
                 try? await viewModel.setup()
             }
             .onAppear() {
-                focued = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    focued = true
+                }
             }
             .navigationDestination(item: $destination) { destination in
                 switch destination.type {
@@ -89,7 +91,7 @@ struct SearchView: View {
     private var scrollContent: some View {
         LazyVStack(alignment: .leading, spacing: 0, pinnedViews: .sectionHeaders) {
             
-            if !viewModel.showsEmptyState && viewModel.results.isEmpty {
+            if !viewModel.showsEmptyState && viewModel.results.isEmpty && !viewModel.recents.isEmpty {
                 recentsSection
             }
             
@@ -195,6 +197,13 @@ struct SearchView: View {
                     .onSubmit { [viewModel] in
                         viewModel.search()
                     }
+                
+                Button {
+                    viewModel.reset()
+                } label: {
+                    Image(systemName: "xmark")
+                        .adaptiveForeground(.tint)
+                }
             }
             .padding(Theme.size(.size200))
             .adaptiveBackground(.backgroundContent)

@@ -6,18 +6,24 @@
 
 import SwiftUI
 
-struct DismissGesture: ViewModifier {
+struct MaskingDismissGesture: ViewModifier {
     
     @State private var offset: CGFloat = 0
     @State private var gestureOffset: CGFloat = 0
     
+    let cornerRadius: CGFloat
     let threshold: CGFloat
     let onDismiss: () -> Void
     
     func body(content: Content) -> some View {
         ZStack {
             content
+                .mask {
+                    RadiiRoundedRectangle(radii: .init(topLeading: radius, bottomLeading: 0, bottomTrailing: 0, topTrailing: radius))
+                        .ignoresSafeArea()
+                }
                 .offset(y: actualOffset)
+                .shadow(color: Color.black.opacity(shadowOpacity), radius: 16, x: 0, y: 0)
         }
         .animation(.spring(), value: offset)
         .gesture(
@@ -39,10 +45,24 @@ struct DismissGesture: ViewModifier {
         offset != gestureOffset ? offset : gestureOffset
     }
     
+    private var radius: CGFloat {
+        let value = max(0, min(offset, 100))
+        return cornerRadius * (value / 100)
+    }
+    
     private var shadowOpacity: CGFloat {
         0.1 * (max(0, min(offset, 100)) / 100)
     }
     
+}
+
+struct RadiiRoundedRectangle: Shape {
+    
+    let radii: RectangleCornerRadii
+    
+    func path(in rect: CGRect) -> Path {
+        Path(roundedRect: rect, cornerRadii: radii)
+    }
 }
 
 #Preview {
@@ -54,7 +74,7 @@ struct DismissGesture: ViewModifier {
     .overlay {
         Rectangle()
             .foregroundStyle(.red)
-            .modifier(DismissGesture(threshold: 400, onDismiss: {}))
+            .modifier(MaskingDismissGesture(cornerRadius: 16, threshold: 400, onDismiss: {}))
     }
     
 }

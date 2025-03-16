@@ -47,14 +47,18 @@ struct MinimizedPlayerView: View {
         .padding(.vertical, Theme.size(.size100))
         .padding(.horizontal, Theme.size(.size200))
         .adaptiveBackground(.backgroundContent)
-        .modifier(DismissGesture(cornerRadius: 0, threshold: 20, onDismiss: {
-            navigation.closePlayer()
-        }))
         .clipShape(RoundedRectangle(cornerRadius: Theme.size(.size100)))
         .shadow(color: Color.black.opacity(0.1), radius: Theme.size(.size100), x: 0, y: 0)
+        .modifier(DismissGesture(threshold: 20, onDismiss: {
+            navigation.closePlayer()
+        }))
         .onTapGesture {
             navigation.play(track)
         }
+        .transition(.asymmetric(
+            insertion: .identity,
+            removal: .offset(y: 50).combined(with: .opacity))
+        )
     }
     
 }
