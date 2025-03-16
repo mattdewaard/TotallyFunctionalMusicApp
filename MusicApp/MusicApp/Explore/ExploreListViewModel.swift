@@ -10,8 +10,8 @@ import DomainKit
 @MainActor
 final class ExploreListViewModel: ObservableObject {
 
-    @Published private(set) var artists: [UIOArtist] = []
-    @Published private(set) var albums: [UIOAlbum] = []
+    @Published private(set) var artists: [any UIOArtist] = []
+    @Published private(set) var albums: [any UIOAlbum] = []
     @Published private(set) var tracks: [UIOTrack] = []
     
     private let usecase: any ExploreProtocol
@@ -26,11 +26,11 @@ final class ExploreListViewModel: ObservableObject {
         self.tracks = try await usecase.getTracks()
     }
     
-    var displayArtists: [UIOArtist] {
+    var displayArtists: [any UIOArtist] {
         Array(artists.prefix(10))
     }
     
-    var displayAlbums: [UIOAlbum] {
+    var displayAlbums: [any UIOAlbum] {
         Array(albums.prefix(10))
     }
     

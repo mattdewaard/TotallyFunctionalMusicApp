@@ -49,6 +49,7 @@ struct TrackView: View {
         .adaptiveBackground(.backgroundContent)
         .overlay(alignment: .bottom) {
             Divider()
+                .padding(.horizontal, Theme.size(.size200))
         }
     }
     

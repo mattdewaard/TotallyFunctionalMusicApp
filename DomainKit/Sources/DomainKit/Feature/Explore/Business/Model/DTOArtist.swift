@@ -12,5 +12,3 @@ struct DTOArtist {
     let albums: [DTOAlbum]
     
 }
-
-

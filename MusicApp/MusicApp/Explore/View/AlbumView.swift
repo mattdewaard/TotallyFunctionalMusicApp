@@ -9,7 +9,7 @@ import DomainKit
 
 struct AlbumView: View {
     
-    let album: UIOAlbum
+    let album: any UIOAlbum
     
     var body: some View {
         HStack(spacing: Theme.size(.size100)) {
@@ -41,13 +41,10 @@ struct AlbumView: View {
         }
         .padding(.vertical, Theme.size(.size200))
         .adaptiveBackground(.backgroundContent)
-        .overlay(alignment: .bottom) {
-            Divider()
-        }
     }
     
     private var tracksText: String {
-        "\(album.tracks) track".pluralIfNeeded(album.tracks)
+        "\(album.tracks.count) track".pluralIfNeeded(album.tracks.count)
     }
     
 }

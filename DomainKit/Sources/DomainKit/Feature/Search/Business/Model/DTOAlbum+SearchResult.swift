@@ -13,7 +13,7 @@ extension DTOAlbum: UIOSearchResult {
      }
      
     var detail: String {
-        "\(tracks) track".pluralIfNeeded(tracks)
+        "\(tracks.count) track".pluralIfNeeded(tracks.count)
     }
     
 }

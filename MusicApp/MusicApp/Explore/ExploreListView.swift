@@ -5,11 +5,23 @@
 //
 
 import SwiftUI
+import DomainKit
+
+struct ExplorePresentation: Hashable {
+    enum Destination {
+        case album
+        case artist
+    }
+    let type: Destination
+    let index: Int
+}
 
 struct ExploreListView: View {
     
     @EnvironmentObject var navigation: ContentNavigationViewModel
     @StateObject private var viewModel = ExploreListViewModel()
+    
+    @State private var destination: ExplorePresentation?
     
     var body: some View {
         NavigationStack {
@@ -31,7 +43,18 @@ struct ExploreListView: View {
             .task {
                 try? await viewModel.setup()
             }
+            .navigationDestination(item: $destination) { destination in
+                switch destination.type {
+                case .album:
+                    let album = viewModel.displayAlbums[destination.index]
+                    AlbumListView(album: album)
+                case .artist:
+                    let artist = viewModel.displayArtists[destination.index]
+                    ArtistListView(artist: artist)
+                }
+            }
         }
+        
     }
     
     private var searchIndicatorView: some View {
@@ -48,7 +71,24 @@ struct ExploreListView: View {
     
     private var artistSection: some View {
         Section {
-            ArtistCarouselView(artists: viewModel.displayArtists)
+            
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Theme.size(.size200)), count: 2)) {
+                ForEach(Array(viewModel.displayArtists.enumerated()), id: \.offset) { index, artist in
+                    Button {
+                        destination = .init(type: .artist, index: index)
+                    } label: {
+                        ArtistView(artist: artist)
+                            .frame(height: 100)
+                    }
+                }
+            }
+            .padding(.horizontal, Theme.size(.size200))
+//            ScrollView(.horizontal, showsIndicators: false) {
+//                LazyHStack(spacing: Theme.size(.size300)) {
+//                    
+//                }
+//                
+//            }
         } header: {
             sectionHeader("Explore artists") {
                 
@@ -59,8 +99,16 @@ struct ExploreListView: View {
     private var albumSection: some View {
         Section {
             Divider()
-            ForEach(viewModel.displayAlbums, id: \.id) { album in
-                AlbumView(album: album)
+            ForEach(Array(viewModel.displayAlbums.enumerated()), id: \.offset) { index, album in
+                Button {
+                    destination = .init(type: .album, index: index)
+                } label: {
+                    AlbumView(album: album)
+                }
+                .overlay(alignment: .bottom) {
+                    Divider()
+                        .padding(.horizontal, Theme.size(.size200))
+                }
             }
             Divider()
         } header: {

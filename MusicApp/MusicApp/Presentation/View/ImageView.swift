@@ -36,7 +36,7 @@ struct ImageView: View {
 struct PortionallyRoundedRectangle: Shape {
     
     func path(in rect: CGRect) -> Path {
-        let radius = min(rect.width, rect.height) * 0.20
+        let radius = min(rect.width, rect.height) * 0.10
         return Path(roundedRect: rect, cornerRadius: radius)
     }
     

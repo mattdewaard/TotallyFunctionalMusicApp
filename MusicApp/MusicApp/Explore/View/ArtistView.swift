@@ -9,27 +9,17 @@ import DomainKit
 
 struct ArtistView: View {
     
-    let artist: UIOArtist
+    let artist: any UIOArtist
     
     var body: some View {
-        VStack(alignment: .leading, spacing: Theme.size(.size050)) {
-            ImageView(url: artist.imageUrl)
-                .frame(width: 100, height: 100)
+        ImageView(url: artist.imageUrl)
+            .overlay(alignment: .bottomLeading) {
                 Text(artist.name)
                     .adaptiveFont(.body1(.medium))
                     .adaptiveForeground(.text)
-                Text(albumsText)
-                    .adaptiveFont(.body2)
-                    .adaptiveForeground(.subtext)
-                Text(artist.genre.first ?? "")
-                    .adaptiveFont(.body2)
-                    .adaptiveForeground(.subtext)
-                    .lineLimit(1)
-        }
+                    .padding(.leading, Theme.size(.size200))
+                    .padding(.bottom, Theme.size(.size100))
+            }
     }
     
-    private var albumsText: String {
-        "\(artist.numberOfAlbums) album".pluralIfNeeded(artist.numberOfAlbums)
-    }
 }
-

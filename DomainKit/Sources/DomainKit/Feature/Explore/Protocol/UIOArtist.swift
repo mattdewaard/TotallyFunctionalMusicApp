@@ -8,9 +8,11 @@ import Foundation
 
 public protocol UIOArtist {
     
+    associatedtype Album: UIOAlbum
+    
     var name: String { get }
     var imageUrl: String { get }
-    var numberOfAlbums: Int { get }
+    var albums: [Album] { get }
     var genre: [String] { get }
     
 }

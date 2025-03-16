@@ -8,12 +8,14 @@ import Foundation
 
 public protocol UIOAlbum {
     
+    associatedtype Track: UIOTrack
+    
     var id: String { get }
     var title: String { get }
     var artist: String { get }
     var releaseDate: Date { get }
     var coverArtUrl: String { get }
-    var tracks: Int { get }
+    var tracks: [Track] { get }
     var genre: [String] { get }
     
 }

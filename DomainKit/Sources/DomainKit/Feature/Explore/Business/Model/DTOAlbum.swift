@@ -12,8 +12,8 @@ struct DTOAlbum {
     let artist: String
     let releaseDate: Date
     let coverArtUrl: String
-    let tracks: Int
     let genre: [String]
+    let tracks: [DTOTrack]
     
 }
 

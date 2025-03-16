@@ -27,8 +27,8 @@ final class ExploreAlbumUseCase {
                 artist: tracks[0].artist.name,
                 releaseDate: tracks[0].releaseDate,
                 coverArtUrl: tracks[0].album.coverArtUrl,
-                tracks: tracks.count,
-                genre: Set(tracks.compactMap(\.genre)).sorted()
+                genre: Set(tracks.compactMap(\.genre)).sorted(),
+                tracks: tracks
             ))
         }
         return albums.sorted(by: { $0.title < $1.title })
