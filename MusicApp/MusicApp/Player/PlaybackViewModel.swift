@@ -21,6 +21,7 @@ final class PlaybackViewModel: ObservableObject {
     
     init(duration: TimeInterval) {
         self.duration = duration
+        start()
     }
     
     private func enableTimer() {

@@ -8,7 +8,7 @@ import Foundation
 import DomainKit
 
 @MainActor
-final class PlayerViewModel: ObservableObject {
+final class FullscreenPlayerViewModel: ObservableObject {
     
     @Published private(set) var track: UIOTrack
     @Published private(set) var isFavourite: Bool = false

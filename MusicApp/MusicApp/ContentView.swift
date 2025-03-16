@@ -22,11 +22,10 @@ struct ContentView: View {
             .adaptiveBackground(.background)
         }
         .ignoresSafeArea()
-        .overlay {
-            if let track = navigation.track, navigation.showTrackAsFocused {
+        .overlay(alignment: .bottom) {
+            if let track = navigation.track {
                 PlayerView(track: track)
                     .id(track.id)
-                    .transition(.move(edge: .bottom).combined(with: .offset(y: 50)))
             }
         }
         .overlay {

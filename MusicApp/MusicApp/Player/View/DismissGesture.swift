@@ -19,8 +19,13 @@ struct DismissGesture: ViewModifier {
         ZStack {
             content
                 .mask {
-                    RadiiRoundedRectangle(radii: .init(topLeading: radius, bottomLeading: 0, bottomTrailing: 0, topTrailing: radius))
-                        .ignoresSafeArea()
+                    if cornerRadius != 0 {
+                        RadiiRoundedRectangle(radii: .init(topLeading: radius, bottomLeading: 0, bottomTrailing: 0, topTrailing: radius))
+                            .ignoresSafeArea()
+                    } else {
+                        Rectangle()
+                            .ignoresSafeArea()
+                    }
                 }
                 .offset(y: actualOffset)
                 .shadow(color: Color.black.opacity(shadowOpacity), radius: 16, x: 0, y: 0)
