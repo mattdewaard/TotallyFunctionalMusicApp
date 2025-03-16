@@ -21,14 +21,14 @@ final class ExploreAlbumUseCase {
         let tracksByAlbum = Dictionary(grouping: tracks, by: \.albumKey)
         var albums: [DTOAlbum] = []
         
-        for (_, tracks) in tracksByAlbum where !tracks.isEmpty{
+        for (_, tracks) in tracksByAlbum where !tracks.isEmpty {
             albums.append(DTOAlbum(
                 title: tracks[0].album.title,
                 artist: tracks[0].artist.name,
                 releaseDate: tracks[0].releaseDate,
                 coverArtUrl: tracks[0].album.coverArtUrl,
                 genre: Set(tracks.compactMap(\.genre)).sorted(),
-                tracks: tracks
+                tracks: tracks.sorted(by: { $0.trackNumber < $1.trackNumber })
             ))
         }
         return albums.sorted(by: { $0.title < $1.title })

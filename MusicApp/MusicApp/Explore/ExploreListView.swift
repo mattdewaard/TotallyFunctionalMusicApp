@@ -83,12 +83,7 @@ struct ExploreListView: View {
                 }
             }
             .padding(.horizontal, Theme.size(.size200))
-//            ScrollView(.horizontal, showsIndicators: false) {
-//                LazyHStack(spacing: Theme.size(.size300)) {
-//                    
-//                }
-//                
-//            }
+            
         } header: {
             sectionHeader("Explore artists") {
                 
@@ -114,7 +109,6 @@ struct ExploreListView: View {
         } header: {
             HStack {
                 sectionHeader("Explore albums") {
-                    print("pressed")
                 }
             }
         }
@@ -130,7 +124,6 @@ struct ExploreListView: View {
         } header: {
             HStack {
                 sectionHeader("Explore tracks") {
-                    print("pressed")
                 }
             }
         }
