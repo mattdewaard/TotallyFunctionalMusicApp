@@ -8,6 +8,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @Environment(\.colorScheme) private var colorScheme
     @StateObject private var navigation = ContentNavigationViewModel()
     
     var body: some View {
@@ -33,6 +34,7 @@ struct ContentView: View {
                 SearchView()
             }
         }
+        .toolbarBackground(Theme.color(.backgroundContent, in: colorScheme), for: .tabBar)
         .environmentObject(navigation)
         .animation(.easeInOut, value: navigation.showSearchInterface)
         .animation(.spring(), value: navigation.showTrackAsFocused && navigation.track != nil)

@@ -6,16 +6,31 @@
 
 import SwiftUI
 
+// This should be an image handling View
 struct ImageView: View {
+    
+    var colorCombinations: [[Color]] = [
+        [.purple, .orange],
+        [.red, .green],
+        [.blue, .orange],
+        [.yellow, .purple],
+        [.pink, .cyan]
+    ]
     
     let url: String
     
     var body: some View {
         PortionallyRoundedRectangle()
-            .foregroundStyle(LinearGradient(colors: [.purple, .orange], startPoint: .topLeading, endPoint: .bottomTrailing))
-            .opacity(0.4)
+            .foregroundStyle(LinearGradient(colors: colors, startPoint: .topLeading, endPoint: .bottomTrailing))
+            .opacity(0.6)
     }
     
+    var colors: [Color] {
+        let bytes = url.data(using: .utf8)!
+        let result = bytes.reduce(Int.zero, { $0 + Int($1) })
+        let index = result % colorCombinations.count
+        return colorCombinations[index]
+    }
 }
 
 struct PortionallyRoundedRectangle: Shape {

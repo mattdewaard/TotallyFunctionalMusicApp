@@ -22,6 +22,7 @@ struct TrackView: View {
                 ImageView(url: track.coverArtUrl)
                     .frame(width: Theme.size(.size500), height: Theme.size(.size500))
                     .adaptiveForeground(.tint)
+                    .padding(.leading, Theme.size(.size200))
                 
                 VStack(alignment: .leading, spacing: Theme.size(.size050)) {
                     Text(track.title)
@@ -41,9 +42,11 @@ struct TrackView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.trailing, Theme.size(.size200))
             }
             .padding(.vertical, Theme.size(.size200))
         }
+        .adaptiveBackground(.backgroundContent)
         .overlay(alignment: .bottom) {
             Divider()
         }

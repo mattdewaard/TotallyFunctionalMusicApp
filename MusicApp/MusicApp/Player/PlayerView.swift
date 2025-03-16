@@ -24,17 +24,7 @@ struct PlayerView: View {
             
             Spacer()
             
-            ImageView(url: viewModel.track.coverArtUrl)
-                .frame(width: 300, height: 300)
-                .padding(.bottom, Theme.size(.size600))
-            Text(viewModel.track.title)
-                .adaptiveFont(.header(.medium))
-                .padding(.bottom, Theme.size(.size100))
-            Text(viewModel.track.artistName)
-                .adaptiveFont(.body1)
-                .padding(.bottom, Theme.size(.size100))
-            Text(viewModel.track.albumName)
-                .adaptiveFont(.body1)
+            contentView
             
             Spacer()
             
@@ -71,6 +61,33 @@ struct PlayerView: View {
                     .fontWeight(.bold)
             }
             Spacer()
+        }
+        .padding(.horizontal, Theme.size(.size300))
+        .padding(.top, Theme.size(.size300))
+    }
+    
+    private var contentView: some View {
+        VStack(spacing: 0) {
+            ImageView(url: viewModel.track.coverArtUrl)
+                .frame(width: 300, height: 300)
+                .padding(.bottom, Theme.size(.size300))
+            optionsView
+                .padding(.bottom, Theme.size(.size300))
+            
+            Text(viewModel.track.title)
+                .adaptiveFont(.header(.medium))
+                .padding(.bottom, Theme.size(.size100))
+            Text(viewModel.track.artistName)
+                .adaptiveFont(.body1)
+                .padding(.bottom, Theme.size(.size100))
+            Text(viewModel.track.albumName)
+                .adaptiveFont(.body1)
+        }
+        .padding(.horizontal, Theme.size(.size200))
+    }
+    
+    private var optionsView: some View {
+        HStack(spacing: Theme.size(.size300)) {
             Button {
                 Task {
                     try? await viewModel.toggleFavourite()
@@ -80,9 +97,32 @@ struct PlayerView: View {
                     .adaptiveForeground(.tint)
                     .fontWeight(.bold)
             }
+            Button {
+            
+            } label: {
+                Image(systemName: "plus.circle")
+                    .frame(width: Theme.size(.size300), height: Theme.size(.size300))
+                    .adaptiveForeground(.tint)
+                    .fontWeight(.bold)
+            }
+            Button {
+            
+            } label: {
+                Image(systemName: "minus.circle")
+                    .frame(width: Theme.size(.size300), height: Theme.size(.size300))
+                    .adaptiveForeground(.tint)
+                    .fontWeight(.bold)
+            }
+            
+            Button {
+            
+            } label: {
+                Image(systemName: "ellipsis.circle")
+                    .frame(width: Theme.size(.size300), height: Theme.size(.size300))
+                    .adaptiveForeground(.tint)
+                    .fontWeight(.bold)
+            }
         }
-        .padding(.horizontal, Theme.size(.size300))
-        .padding(.top, Theme.size(.size300))
     }
     
 }

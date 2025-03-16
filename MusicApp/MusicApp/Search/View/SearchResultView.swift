@@ -29,6 +29,7 @@ struct SearchResultView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(Theme.size(.size200))
+        .adaptiveBackground(.backgroundContent)
         .overlay(alignment: .bottom) {
             Divider()
         }

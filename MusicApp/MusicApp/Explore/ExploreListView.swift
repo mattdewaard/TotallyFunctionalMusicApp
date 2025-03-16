@@ -27,7 +27,7 @@ struct ExploreListView: View {
             .coordinateSpace(name: "Scroll")
             .clipped()
             .scrollContentBackground(.hidden)
-            .adaptiveBackground(.backgroundContent)
+            .adaptiveBackground(.background)
             .task {
                 try? await viewModel.setup()
             }
@@ -61,7 +61,6 @@ struct ExploreListView: View {
             Divider()
             ForEach(viewModel.displayAlbums, id: \.id) { album in
                 AlbumView(album: album)
-                    .padding(.horizontal, Theme.size(.size200))
             }
             Divider()
         } header: {
@@ -78,7 +77,6 @@ struct ExploreListView: View {
             Divider()
             ForEach(viewModel.displayTracks, id: \.id) { track in
                 TrackView(track: track)
-                    .padding(.horizontal, Theme.size(.size200))
             }
             Divider()
         } header: {
@@ -109,7 +107,7 @@ struct ExploreListView: View {
             .padding(.bottom, Theme.size(.size100))
             .padding(.horizontal, Theme.size(.size200))
             .frame(maxWidth: .infinity, alignment: .leading)
-            .adaptiveBackground(.backgroundContent)
+            .adaptiveBackground(.background)
         }
     }
     

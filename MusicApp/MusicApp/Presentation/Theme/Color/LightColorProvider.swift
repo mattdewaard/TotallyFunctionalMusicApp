@@ -12,7 +12,7 @@ struct LightColorProvider: ColorPaletteRepresentable {
     
     func palette(_ color: SemanticColor) -> PaletteElement {
         switch color {
-        case .background: .black10
+        case .background: .white
         case .backgroundContent: .white
         case .backgroundElevated: .black20
             

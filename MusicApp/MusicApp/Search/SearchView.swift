@@ -31,7 +31,7 @@ struct SearchView: View {
         .background {
             Rectangle()
                 .ignoresSafeArea()
-                .adaptiveForeground(.backgroundContent)
+                .adaptiveForeground(.background)
                 .transition(.opacity)
         }
         .overlay {
@@ -72,7 +72,7 @@ struct SearchView: View {
             .padding(.bottom, Theme.size(.size100))
             .padding(.horizontal, Theme.size(.size200))
             .frame(maxWidth: .infinity, alignment: .leading)
-            .adaptiveBackground(.backgroundContent)
+            .adaptiveBackground(.background)
         }
         .transition(.asymmetric(
             insertion: .offset(y: 20),

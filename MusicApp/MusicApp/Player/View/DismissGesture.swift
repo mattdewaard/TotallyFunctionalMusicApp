@@ -18,9 +18,10 @@ struct DismissGesture: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
             content
-                .clipShape(
+                .mask {
                     RadiiRoundedRectangle(radii: .init(topLeading: radius, bottomLeading: 0, bottomTrailing: 0, topTrailing: radius))
-                )
+                        .ignoresSafeArea()
+                }
                 .offset(y: actualOffset)
                 .shadow(color: Color.black.opacity(shadowOpacity), radius: 16, x: 0, y: 0)
         }
